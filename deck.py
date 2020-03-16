@@ -2,10 +2,9 @@ import collections
 #    tuple with names. access value without index.
 Card = collections.namedtuple('Card', ['rank', 'suit'])
 
-
 class Deck:
-    ranks = [str(n) for n in range(2, 11)] + list('JQKA')
-    suits = ['spades diamonds clubs hearts'.split()]
+    ranks = [str(n) for n in range(2, 11)] + list('JQKA')   
+    suits = 'spades diamonds clubs hearts'.split()
 
     def __init__(self):
         self._cards = [Card(rank, suit) for suit in self.suits
@@ -17,7 +16,8 @@ class Deck:
     def __getitem__(self, position):
         return self._cards[position]
 
-
 if __name__ == '__main__':
+    beer_card = Card('7','diamonds')
+    print(beer_card)
     deck = Deck()
     print(len(deck))
